@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Format Autonomous AI System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="/static/style.css?v=3" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <header class="hero-header">
+            <div class="hero-background">
+                <div class="hero-content">
+                    <div class="hero-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h1 class="hero-title">
+                        Multi-Format Autonomous AI System
+                    </h1>
+                    <p class="hero-subtitle">
+                        Intelligent processing of Email, JSON, and PDF inputs with contextual decisioning and automated action chaining
+                    </p>
+                    <div class="hero-features">
+                        <span class="feature-badge">
+                            <i class="fas fa-envelope"></i> Email Processing
+                        </span>
+                        <span class="feature-badge">
+                            <i class="fas fa-code"></i> JSON Analysis
+                        </span>
+                        <span class="feature-badge">
+                            <i class="fas fa-file-pdf"></i> PDF Extraction
+                        </span>
+                        <span class="feature-badge">
+                            <i class="fas fa-cogs"></i> Auto Actions
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="row">
+            <!-- Input Panel -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-upload me-2"></i>
+                            Input Processing
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="processForm" enctype="multipart/form-data">
+                            <!-- File Upload -->
+                            <div class="mb-3">
+                                <label for="fileInput" class="form-label">Upload File (PDF, JSON, TXT)</label>
+                                <input type="file" class="form-control" id="fileInput" name="file" 
+                                       accept=".pdf,.json,.txt,.eml">
+                                <div class="form-text">Supported formats: PDF, JSON, TXT, EML</div>
+                            </div>
+
+                            <!-- Text Input -->
+                            <div class="mb-3">
+                                <label for="textInput" class="form-label">Or Enter Text Content</label>
+                                <textarea class="form-control" id="textInput" name="text_input" rows="6" 
+                                          placeholder="Paste email content, JSON data, or other text here..."></textarea>
+                            </div>
+
+                            <!-- Input Type Override -->
+                            <div class="mb-3">
+                                <label for="inputType" class="form-label">Input Type (Optional)</label>
+                                <select class="form-select" id="inputType" name="input_type">
+                                    <option value="">Auto-detect</option>
+                                    <option value="Email">Email</option>
+                                    <option value="JSON">JSON</option>
+                                    <option value="PDF">PDF</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="processBtn">
+                                <i class="fas fa-cogs me-2"></i>
+                                Process Input
+                            </button>
+                        </form>
+
+                        <!-- Sample Data Buttons -->
+                        <div class="mt-4">
+                            <h6>Load Sample Data:</h6>
+                            <div class="btn-group-vertical w-100" role="group">
+                                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="loadSampleEmail()">
+                                    <i class="fas fa-envelope me-2"></i>Sample Email
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="loadSampleJSON()">
+                                    <i class="fas fa-code me-2"></i>Sample JSON
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="loadSamplePolicy()">
+                                    <i class="fas fa-file-pdf me-2"></i>Sample Policy Document
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Processing Status -->
+                <div class="card mt-3" id="statusCard" style="display: none;">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="spinner-border spinner-border-sm text-primary me-3" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <span id="statusText">Processing input through multi-agent system...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Panel -->
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-chart-line me-2"></i>
+                            Processing Results
+                        </h5>
+                    </div>
+                    <div class="card-body" id="resultsContainer">
+                        <div class="text-muted text-center py-4">
+                            <i class="fas fa-arrow-left fa-2x mb-3"></i>
+                            <p>Upload a file or enter text to see processing results</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent Flow Diagram -->
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h6 class="card-title mb-0">
+                            <i class="fas fa-sitemap me-2"></i>
+                            Agent Processing Flow
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="agent-flow">
+                            <div class="flow-step">
+                                <div class="step-icon classifier">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <div class="step-label">Classifier Agent</div>
+                                <div class="step-desc">Format & Intent Detection</div>
+                            </div>
+                            <div class="flow-arrow">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="flow-step">
+                                <div class="step-icon agent">
+                                    <i class="fas fa-cog"></i>
+                                </div>
+                                <div class="step-label">Specialized Agent</div>
+                                <div class="step-desc">Email / JSON / PDF Processing</div>
+                            </div>
+                            <div class="flow-arrow">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="flow-step">
+                                <div class="step-icon action">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="step-label">Action Router</div>
+                                <div class="step-desc">Trigger Follow-up Actions</div>
+                            </div>
+                            <div class="flow-arrow">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="flow-step">
+                                <div class="step-icon memory">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="step-label">Memory Store</div>
+                                <div class="step-desc">Audit Trail & Decision Logs</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Processing Traces -->
+        <div class="row mt-4">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-history me-2"></i>
+                            Processing History
+                        </h5>
+                        <button class="btn btn-outline-primary btn-sm" onclick="loadTraces()">
+                            <i class="fas fa-sync me-2"></i>Refresh
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div id="tracesContainer">
+                            <div class="text-muted text-center py-3">
+                                <i class="fas fa-clock fa-2x mb-3"></i>
+                                <p>No processing history yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
