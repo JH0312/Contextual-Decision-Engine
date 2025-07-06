@@ -8,8 +8,8 @@ import re
 import json
 from typing import Dict, Any, List
 import PyPDF2
-from utils.openai_client import OpenAIClient
-from memory.store import MemoryStore
+from ContextualDecisionEngine.utils.openai_client import OpenAIClient
+from ContextualDecisionEngine.memory.store import MemoryStore
 
 class PDFAgent:
     def __init__(self, memory_store: MemoryStore):

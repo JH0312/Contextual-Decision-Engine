@@ -6,8 +6,8 @@ Flags anomalies and validates data integrity
 import json
 import jsonschema
 from typing import Dict, Any, List
-from utils.openai_client import OpenAIClient
-from memory.store import MemoryStore
+from ContextualDecisionEngine.utils.openai_client import OpenAIClient
+from ContextualDecisionEngine.memory.store import MemoryStore
 
 class JSONAgent:
     def __init__(self, memory_store: MemoryStore):

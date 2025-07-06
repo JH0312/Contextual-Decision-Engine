@@ -6,8 +6,8 @@ Identifies tone and triggers actions based on urgency and sentiment
 import json
 import re
 from typing import Dict, Any
-from utils.openai_client import OpenAIClient
-from memory.store import MemoryStore
+from ContextualDecisionEngine.utils.openai_client import OpenAIClient
+from ContextualDecisionEngine.memory.store import MemoryStore
 
 class EmailAgent:
     def __init__(self, memory_store: MemoryStore):

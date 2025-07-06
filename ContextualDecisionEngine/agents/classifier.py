@@ -5,8 +5,8 @@ Uses few-shot examples and schema matching for accurate classification
 
 import json
 from typing import Dict, Any, Optional
-from utils.openai_client import OpenAIClient
-from memory.store import MemoryStore
+from ContextualDecisionEngine.utils.openai_client import OpenAIClient
+from ContextualDecisionEngine.memory.store import MemoryStore
 
 class ClassifierAgent:
     def __init__(self, memory_store: MemoryStore):
