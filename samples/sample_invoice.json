@@ -1,0 +1,81 @@
+{
+  "invoice_id": "INV-2024-00156",
+  "customer_id": "CUST-789012",
+  "vendor_name": "Professional Services Corp",
+  "customer_name": "Global Manufacturing Ltd",
+  "invoice_date": "2024-01-15",
+  "due_date": "2024-02-14",
+  "currency": "USD",
+  "total_amount": 25750.00,
+  "subtotal": 23400.00,
+  "tax_amount": 2350.00,
+  "tax_rate": 0.10,
+  "payment_terms": "Net 30",
+  "line_items": [
+    {
+      "item_id": "SVC-001",
+      "description": "Enterprise Software Implementation - Phase 1",
+      "quantity": 1,
+      "unit_price": 15000.00,
+      "total_price": 15000.00,
+      "category": "Professional Services"
+    },
+    {
+      "item_id": "SVC-002", 
+      "description": "Data Migration and Integration Services",
+      "quantity": 40,
+      "unit_price": 150.00,
+      "total_price": 6000.00,
+      "category": "Technical Services"
+    },
+    {
+      "item_id": "TRN-001",
+      "description": "End-User Training Program (2 days)",
+      "quantity": 2,
+      "unit_price": 1200.00,
+      "total_price": 2400.00,
+      "category": "Training"
+    }
+  ],
+  "billing_address": {
+    "company": "Global Manufacturing Ltd",
+    "street": "1500 Industrial Boulevard",
+    "city": "Chicago",
+    "state": "IL",
+    "zip": "60601",
+    "country": "USA"
+  },
+  "vendor_address": {
+    "company": "Professional Services Corp",
+    "street": "800 Technology Drive",
+    "city": "Austin",
+    "state": "TX", 
+    "zip": "78701",
+    "country": "USA"
+  },
+  "project_details": {
+    "project_name": "ERP System Modernization",
+    "project_manager": "Sarah Johnson",
+    "start_date": "2024-01-01",
+    "estimated_completion": "2024-03-31",
+    "milestone": "Phase 1 - Core Implementation"
+  },
+  "payment_instructions": {
+    "method": "Wire Transfer",
+    "bank_name": "First National Bank",
+    "account_number": "****1234",
+    "routing_number": "****5678",
+    "reference": "INV-2024-00156"
+  },
+  "notes": "Payment due within 30 days of invoice date. Late payments subject to 1.5% monthly service charge. This invoice represents completion of Phase 1 deliverables as outlined in Contract #PSC-2024-001.",
+  "approved_by": "Michael Chen - Finance Director",
+  "approval_date": "2024-01-14",
+  "anomaly_flags": [
+    {
+      "type": "high_value_transaction",
+      "threshold_exceeded": 10000.00,
+      "actual_amount": 25750.00,
+      "requires_approval": true
+    }
+  ]
+}
