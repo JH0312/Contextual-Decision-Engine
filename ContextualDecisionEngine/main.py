@@ -13,12 +13,13 @@ import tempfile
 import json
 from typing import Optional
 
-from agents.classifier import ClassifierAgent
-from agents.email_agent import EmailAgent
-from agents.json_agent import JSONAgent
-from agents.pdf_agent import PDFAgent
-from memory.store import MemoryStore
-from routers.action_router import ActionRouter
+from ContextualDecisionEngine.agents.classifier import ClassifierAgent
+from ContextualDecisionEngine.agents.email_agent import EmailAgent
+from ContextualDecisionEngine.agents.json_agent import JSONAgent
+from ContextualDecisionEngine.agents.pdf_agent import PDFAgent
+from ContextualDecisionEngine.memory.store import MemoryStore
+from ContextualDecisionEngine.routers.action_router import ActionRouter
+
 
 app = FastAPI(
     title="Multi-Format Autonomous AI System",
